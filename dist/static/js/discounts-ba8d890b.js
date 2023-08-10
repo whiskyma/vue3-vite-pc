@@ -1,0 +1,1 @@
+import{d as o,r,c as a,t as n,f as s,o as u}from"./.pnpm-7f54a190.js";const _=o({__name:"discounts",setup(c){const e=s(),t=r(e.currentRoute.value.name);return(l,m)=>(u(),a("h1",null,n(t.value),1))}});export{_ as default};
