@@ -77,29 +77,28 @@ export const post = ((url:string, param:any) =>{
 })
 
 // 防抖函数--调用防抖函数（触发事件后在1秒内函数只能执行一次）
-export const debounce = (fn: any, interval: number = 2000) =>{
-    let timer:any
-    let gapTime = interval;
-    return function (){
-        clearTimeout(timer);
-        let context = this;
-        let args = arguments;
-        timer = setTimeout(function (){
-            fn.call(context, args);
-        }, gapTime);
-    };
-}
+// es6 注意点：获取入参...args(es5是arguments)
+export const debounce = (fn: any, interval = 1500, ...args: any[]) => {
+  let timer: any;
+  const gapTime = interval;
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout( () => {
+      fn.call(this, args);
+    }, gapTime);
+  };
+};
 
 // 节流函数--调用节流函数（首次点击后触发打印，2秒内点击按钮都不会触发，2秒后再次点击触发）
-export const throttle = (fn: any, interval: number = 2000) =>{
-    let enterTime = 0;
-    let gapTime = interval;
-    return function (){
-        let context = this;
-        let backTime = new Date();
-        if (backTime - enterTime > gapTime){
-            fn.call(context, arguments);
-            enterTime = backTime;
-        }
-    };
-}
+// es6 注意点：获取入参...args(es5是arguments)
+export const throttle = (fn: any, interval = 1500, ...args: any[]) => {
+  let enterTime = 0;
+  const gapTime = interval;
+  return function () {
+    const backTime: any = new Date();
+    if (backTime - enterTime > gapTime) {
+      fn.call(this, args);
+      enterTime = backTime;
+    }
+  };
+};
