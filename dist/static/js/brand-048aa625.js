@@ -1,1 +1,0 @@
-import{d as r,r as a,c as o,t as n,f as s,o as u}from"./.pnpm-7f54a190.js";const _=r({__name:"brand",setup(c){const e=s(),t=a(e.currentRoute.value.name);return(l,m)=>(u(),o("h1",null,n(t.value),1))}});export{_ as default};
